@@ -37,9 +37,9 @@ export const navItems: NavItem[] = [
     label: "Catalog",
     icon: <AppstoreOutlined />,
     children: [
-      { key: "products", label: "Products", icon: <ShoppingOutlined />, path: "/admin/products", disabled: true },
-      { key: "categories", label: "Categories", icon: <TagsOutlined />, path: "/admin/categories", disabled: true },
-      { key: "brands", label: "Brands", icon: <GiftOutlined />, path: "/admin/brands", disabled: true },
+      { key: "products", label: "Products", icon: <ShoppingOutlined />, path: "/admin/products" },
+      { key: "categories", label: "Categories", icon: <TagsOutlined />, path: "/admin/categories" },
+      { key: "brands", label: "Brands", icon: <GiftOutlined />, path: "/admin/brands" },
     ],
   },
   {

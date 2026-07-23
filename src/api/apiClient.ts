@@ -51,6 +51,9 @@ export const createApiClient = (baseURL?: string) => {
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
+    if (config.data instanceof FormData) {
+      delete config.headers["Content-Type"];
+    }
     return config;
   });
 
@@ -98,6 +101,14 @@ class ApiClient {
 
   patch<T>(config: AxiosRequestConfig): Promise<T> {
     return this.request({ ...config, method: "PATCH" });
+  }
+
+  put<T>(config: AxiosRequestConfig): Promise<T> {
+    return this.request({ ...config, method: "PUT" });
+  }
+
+  delete<T>(config: AxiosRequestConfig): Promise<T> {
+    return this.request({ ...config, method: "DELETE" });
   }
 
   private request<T>(config: AxiosRequestConfig): Promise<T> {

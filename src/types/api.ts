@@ -23,6 +23,14 @@ export interface UserProfile {
   updatedAt?: string;
 }
 
+export interface PageResponse<T> {
+  content: T[];
+  page: number;
+  size: number;
+  totalElements: number;
+  totalPages: number;
+}
+
 export interface AuthResponse extends AuthTokens {
   user: UserProfile;
 }
