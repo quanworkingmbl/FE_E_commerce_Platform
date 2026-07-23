@@ -47,7 +47,6 @@ export const navItems: NavItem[] = [
     label: "Inventory",
     icon: <BarChartOutlined />,
     path: "/admin/inventory",
-    disabled: true,
   },
   {
     key: "orders",
@@ -61,7 +60,6 @@ export const navItems: NavItem[] = [
     label: "Promotions",
     icon: <GiftOutlined />,
     path: "/admin/promotions",
-    disabled: true,
   },
   {
     key: "returns",
