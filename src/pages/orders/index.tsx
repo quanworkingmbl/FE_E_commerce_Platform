@@ -8,7 +8,7 @@ import CmsLayout from "@/components/cms-layout/CmsLayout";
 import CMSTable from "@/components/table/CMSTable";
 import { orderService } from "@/api/services/orderService";
 import {
-  ORDER_STATUS_COLOR, ORDER_STATUS_LABEL, PAYMENT_STATUS_LABEL, formatVnd,
+  ORDER_STATUS_COLOR, ORDER_STATUS_LABEL, PAYMENT_STATUS_COLOR, PAYMENT_STATUS_LABEL, formatVnd,
 } from "@/constants/orderStatus";
 import type { OrderDetail, OrderStatus, OrderSummary } from "@/types/order";
 
@@ -84,7 +84,9 @@ export default function OrdersPage() {
     },
     {
       title: "Thanh toán", dataIndex: "paymentStatus", key: "paymentStatus",
-      render: (s: keyof typeof PAYMENT_STATUS_LABEL) => PAYMENT_STATUS_LABEL[s],
+      render: (s: keyof typeof PAYMENT_STATUS_LABEL) => (
+        <Tag color={PAYMENT_STATUS_COLOR[s]}>{PAYMENT_STATUS_LABEL[s]}</Tag>
+      ),
     },
     {
       title: "Tổng tiền", dataIndex: "totalAmount", key: "totalAmount",
@@ -160,6 +162,9 @@ export default function OrdersPage() {
               <Descriptions.Item label="Email">{detail.customerEmail ?? "—"}</Descriptions.Item>
               <Descriptions.Item label="Trạng thái">
                 <Tag color={ORDER_STATUS_COLOR[detail.status]}>{ORDER_STATUS_LABEL[detail.status]}</Tag>
+              </Descriptions.Item>
+              <Descriptions.Item label="Thanh toán">
+                <Tag color={PAYMENT_STATUS_COLOR[detail.paymentStatus]}>{PAYMENT_STATUS_LABEL[detail.paymentStatus]}</Tag>
               </Descriptions.Item>
               <Descriptions.Item label="Địa chỉ" span={2}>{detail.shippingAddress}</Descriptions.Item>
               <Descriptions.Item label="Tạm tính">{formatVnd(detail.subtotal)}</Descriptions.Item>

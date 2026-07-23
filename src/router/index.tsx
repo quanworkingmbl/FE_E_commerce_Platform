@@ -10,6 +10,7 @@ import BrandsPage from "@/pages/brands";
 import PromotionsPage from "@/pages/promotions";
 import InventoryPage from "@/pages/inventory";
 import OrdersPage from "@/pages/orders";
+import PaymentsPage from "@/pages/payments";
 
 const HOMEPAGE = import.meta.env.VITE_APP_HOMEPAGE || "/admin/dashboard";
 
@@ -34,6 +35,7 @@ export default function AppRouter() {
           <Route path="admin/promotions" element={<PromotionsPage />} />
           <Route path="admin/inventory" element={<InventoryPage />} />
           <Route path="admin/orders" element={<OrdersPage />} />
+          <Route path="admin/payments" element={<PaymentsPage />} />
           <Route path="profile" element={<ProfilePage />} />
         </Route>
         <Route path="*" element={<Navigate to={HOMEPAGE} replace />} />

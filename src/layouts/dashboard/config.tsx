@@ -1,6 +1,7 @@
 import {
   AppstoreOutlined,
   BarChartOutlined,
+  CreditCardOutlined,
   GiftOutlined,
   HomeOutlined,
   RollbackOutlined,
@@ -53,6 +54,12 @@ export const navItems: NavItem[] = [
     label: "Orders",
     icon: <ShoppingCartOutlined />,
     path: "/admin/orders",
+  },
+  {
+    key: "payments",
+    label: "Payments",
+    icon: <CreditCardOutlined />,
+    path: "/admin/payments",
   },
   {
     key: "promotions",

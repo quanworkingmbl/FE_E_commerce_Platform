@@ -26,5 +26,11 @@ export const PAYMENT_STATUS_LABEL: Record<PaymentStatus, string> = {
   REFUNDED: "Đã hoàn tiền",
 };
 
+export const PAYMENT_STATUS_COLOR: Record<PaymentStatus, string> = {
+  UNPAID: "gold",
+  PAID: "green",
+  REFUNDED: "orange",
+};
+
 export const formatVnd = (n: number) =>
   new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(n);
