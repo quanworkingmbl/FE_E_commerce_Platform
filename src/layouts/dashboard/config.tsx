@@ -6,10 +6,10 @@ import {
   HomeOutlined,
   RollbackOutlined,
   SettingOutlined,
+  StarOutlined,
   ShoppingCartOutlined,
   ShoppingOutlined,
   TagsOutlined,
-  TeamOutlined,
   UserOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
@@ -72,14 +72,12 @@ export const navItems: NavItem[] = [
     label: "Returns",
     icon: <RollbackOutlined />,
     path: "/admin/returns",
-    disabled: true,
   },
   {
-    key: "users",
-    label: "Users",
-    icon: <TeamOutlined />,
-    path: "/admin/users",
-    disabled: true,
+    key: "reviews",
+    label: "Reviews",
+    icon: <StarOutlined />,
+    path: "/admin/reviews",
   },
   {
     key: "settings",

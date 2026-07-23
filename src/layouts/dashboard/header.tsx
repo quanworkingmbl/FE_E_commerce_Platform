@@ -2,6 +2,7 @@ import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
 import { Avatar, Dropdown, Layout, Space, Typography } from "antd";
 import { useNavigate } from "react-router-dom";
 import { authService } from "@/api/services/authService";
+import NotificationBell from "@/components/notification/NotificationBell";
 import { useUserActions, useUserInfo, useUserToken } from "@/store/userStore";
 
 const { Header } = Layout;
@@ -52,12 +53,15 @@ export default function DashboardHeader() {
       <Typography.Title level={4} style={{ margin: 0 }}>
         Admin Portal
       </Typography.Title>
-      <Dropdown menu={{ items: menuItems }}>
-        <Space style={{ cursor: "pointer" }}>
-          <Avatar icon={<UserOutlined />} src={user?.avatarUrl} />
-          <span>{user?.fullName || user?.email}</span>
-        </Space>
-      </Dropdown>
+      <Space size="middle">
+        <NotificationBell />
+        <Dropdown menu={{ items: menuItems }}>
+          <Space style={{ cursor: "pointer" }}>
+            <Avatar icon={<UserOutlined />} src={user?.avatarUrl} />
+            <span>{user?.fullName || user?.email}</span>
+          </Space>
+        </Dropdown>
+      </Space>
     </Header>
   );
 }
