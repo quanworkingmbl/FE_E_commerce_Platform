@@ -7,6 +7,7 @@ import {
   RollbackOutlined,
   SettingOutlined,
   StarOutlined,
+  TeamOutlined,
   ShoppingCartOutlined,
   ShoppingOutlined,
   TagsOutlined,
@@ -80,11 +81,16 @@ export const navItems: NavItem[] = [
     path: "/admin/reviews",
   },
   {
+    key: "users",
+    label: "Users",
+    icon: <TeamOutlined />,
+    path: "/admin/users",
+  },
+  {
     key: "settings",
     label: "Settings",
     icon: <SettingOutlined />,
     path: "/admin/settings",
-    disabled: true,
   },
   {
     key: "profile",

@@ -1,26 +1,44 @@
 # E-Commerce Admin (FE)
 
-React 18 + Vite + TypeScript + Ant Design + Zustand + Axios.
+React 18 + Vite + TypeScript + Ant Design + ApexCharts.
 
 ## Setup
 
 ```bash
 npm install
+cp .env.example .env
 npm run dev
 ```
 
 Open http://localhost:5173 — login with `admin@ecommerce.com` / `Admin@123`.
 
-## API
+## Environment
 
-Spring Boot base URL: `VITE_APP_BASE_API` (default `http://localhost:8080/api/v1`).
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `VITE_APP_BASE_API` | `http://localhost:8080/api/v1` | Spring Boot API base |
 
-No `X-Quan-Secret` header — JWT Bearer only.
+## Key routes
 
-## Phase 1 routes
+- `/admin/dashboard` — KPI + revenue chart + top products (reports API)
+- `/admin/users` — User management
+- `/admin/settings` — System settings
+- `/profile` — Current user profile
 
-- `/login` — Admin login
-- `/admin/dashboard` — Shell dashboard
-- `/profile` — User profile (GET/PATCH `/users/me`)
+## Docker (production build)
 
-Sidebar links for Products, Orders, etc. are **disabled** until later phases.
+```bash
+docker build -t ecommerce-admin .
+```
+
+Or use full stack from `BE_E_commerce_Platform/deploy`:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+```
+
+Nginx serves static files and proxies `/api/` to the backend.
+
+## CI
+
+GitHub Actions: `.github/workflows/ci.yml` — `npm ci && npm run build`.
