@@ -53,7 +53,6 @@ export const navItems: NavItem[] = [
     label: "Orders",
     icon: <ShoppingCartOutlined />,
     path: "/admin/orders",
-    disabled: true,
   },
   {
     key: "promotions",
